@@ -1,6 +1,9 @@
-﻿namespace DnsToysNET;
+﻿using DnsToysNET.Models;
+
+namespace DnsToysNET;
 
 public interface IDnsToys
 {
-    Task<string[][]> RawAsync(string request);
+    Task<IEnumerable<IDnsToysHelpEntry>> HelpAsync();
+    Task<IDnsToysTimeEntry> TimeAsync(string city);
 }
