@@ -6,6 +6,7 @@
 		<LangVersion>latest</LangVersion>
 
 		<Product>DnsToys.NET</Product>
+		<Version>1.0.0</Version>
 		<Description>DnsToys.NET is a simple library for the dns.toys service.</Description>
 		<Copyright>Copyright (c) 2022 Fatih Doğan</Copyright>
 		<Authors>fth.dgn</Authors>
