@@ -41,10 +41,14 @@ public class DnsToys : IDnsToys
 
     private const string FxRequestFormat = "{0}{1}-{2}.fx";
     public async Task<IDnsToysFxEntry> FxAsync(double rate, string fromCurrencyCode, string toCurrencyCode) => await GetFirstAsync<IDnsToysFxEntry>(string.Format(CultureInfo.InvariantCulture, FxRequestFormat, rate, fromCurrencyCode, toCurrencyCode));
-    
+
     private const string UnitRequestFormat = "{0}{1}-{2}.unit";
     public async Task<IDnsToysUnitEntry> UnitAsync(double unit, string fromSymbol, string toSymbol) => await GetFirstAsync<IDnsToysUnitEntry>(string.Format(CultureInfo.InvariantCulture, UnitRequestFormat, unit, fromSymbol, toSymbol));
 
     private const string WordsRequestFormat = "{0}.words";
     public async Task<IDnsToysWordsEntry> WordsAsync(int numbers) => await GetFirstAsync<IDnsToysWordsEntry>(string.Format(CultureInfo.InvariantCulture, WordsRequestFormat, numbers));
+
+    private const string CIDRRequestFormat = "{0}.cidr";
+    public async Task<IDnsToysCIDREntry> CIDRAsync(string cidr) => await GetFirstAsync<IDnsToysCIDREntry>(string.Format(CultureInfo.InvariantCulture, CIDRRequestFormat, cidr));
+    public async Task<IDnsToysCIDREntry> CIDRAsync(string ipAddress, byte bits) => await CIDRAsync($"{ipAddress}/{bits}");
 }

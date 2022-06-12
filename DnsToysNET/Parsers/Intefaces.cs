@@ -8,4 +8,5 @@ public interface IDnsToysIpEntryParser : IDnsToysEntryParser<IDnsToysIpEntry> { 
 public interface IDnsToysFxEntryParser : IDnsToysEntryParser<IDnsToysFxEntry> { }
 public interface IDnsToysUnitEntryParser : IDnsToysEntryParser<IDnsToysUnitEntry> { }
 public interface IDnsToysWordsEntryParser : IDnsToysEntryParser<IDnsToysWordsEntry> { }
+public interface IDnsToysCIDREntryParser : IDnsToysEntryParser<IDnsToysCIDREntry> { }
 

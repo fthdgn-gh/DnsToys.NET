@@ -118,4 +118,19 @@ public class DnsToysTests
         result.Numbers.Should().Be(123);
         result.Words.Should().Be("one hundred twenty-three");
     }
+
+    [Fact]
+    public async Task CIDR_GetsValidEntry()
+    {
+        _requesterMock.Setup(x => x.RequestAsync($"10.100.0.0/24.cidr")).ReturnsAsync(new string[][] {
+            new string[] {  "10.100.0.1","10.100.0.254", "256" }
+        });
+
+        var result = await sut.CIDRAsync("10.100.0.0", 24);
+
+        result.Should().NotBeNull();
+        result.FirstIPAddress.Should().Be(IPAddress.Parse("10.100.0.1"));
+        result.LastIPAddress.Should().Be(IPAddress.Parse("10.100.0.254"));
+        result.Cost.Should().Be(256);
+    }
 }
