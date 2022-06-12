@@ -138,14 +138,21 @@ public class DnsToysTests
     public async Task Weather_GetsValidEntry()
     {
         _requesterMock.Setup(x => x.RequestAsync($"berlin.weather")).ReturnsAsync(new string[][] {
-            new string[] {  "10.100.0.1","10.100.0.254", "256" }
+            new string[] { "Berlin (DE)", "26.00C (78.80F)", "31.10% hu.", "partlycloudy_day","17:00, Sun" }
         });
 
-        var result = await sut.CIDRAsync("10.100.0.0", 24);
+        var result = await sut.WeatherAsync("berlin");
 
         result.Should().NotBeNull();
-        result.FirstIPAddress.Should().Be(IPAddress.Parse("10.100.0.1"));
-        result.LastIPAddress.Should().Be(IPAddress.Parse("10.100.0.254"));
-        result.Cost.Should().Be(256);
+        var entry = result.FirstOrDefault();
+        entry.Should().NotBeNull();
+        entry!.City.Should().Be("Berlin");
+        entry!.CountryCode.Should().Be("DE");
+        entry!.Celsius.Should().Be(26f);
+        entry!.Fahrenheit.Should().Be(78.80f);
+        entry!.Humidity.Should().Be(31.10f);
+        entry!.Forecast.Should().Be("partlycloudy_day");
+        entry!.Time.Should().Be(TimeOnly.Parse("17:00"));
+        entry!.Day.Should().Be(DayOfWeek.Sunday);
     }
 }
