@@ -4,7 +4,25 @@
 		<TargetFrameworks>net6.0;net5.0;netstandard2.0;netstandard2.1;net471</TargetFrameworks>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
+
+		<Product>DnsToys.NET</Product>
+		<Description>DnsToys.NET is a simple library for the dns.toys service.</Description>
+		<Copyright>Copyright (c) 2022 Fatih Doğan</Copyright>
+		<Authors>fatihdgn</Authors>
+		<AssemblyName>DnsToys</AssemblyName>
+
+		<PackageId>DnsToys</PackageId>
+		<PackageTags>dns;toys;service</PackageTags>
+
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageProjectUrl>https://github.com/fatihdgn/DnsToys.NET</PackageProjectUrl>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<WebPage>https://github.com/fatihdgn/DnsToys.NET</WebPage>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/fatihdgn/DnsToys.NET</RepositoryUrl>
 	</PropertyGroup>
+
+	
 
 	<ItemGroup>
 		<PackageReference Include="DnsClient" Version="1.6.1" />
@@ -14,4 +32,7 @@
 		<PackageReference Include="Portable.System.DateTimeOnly" Version="6.0.1" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<None Include="../icon.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
 </Project>
