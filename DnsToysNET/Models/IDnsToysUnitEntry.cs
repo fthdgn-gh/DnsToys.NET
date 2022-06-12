@@ -1,7 +1,4 @@
-﻿
-using System.Net;
-
-namespace DnsToysNET.Models;
+﻿namespace DnsToysNET.Models;
 
 public interface IDnsToysUnitEntry : IDnsToysEntry
 {

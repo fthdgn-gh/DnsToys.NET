@@ -44,4 +44,7 @@ public class DnsToys : IDnsToys
     
     private const string UnitRequestFormat = "{0}{1}-{2}.unit";
     public async Task<IDnsToysUnitEntry> UnitAsync(double unit, string fromSymbol, string toSymbol) => await GetFirstAsync<IDnsToysUnitEntry>(string.Format(CultureInfo.InvariantCulture, UnitRequestFormat, unit, fromSymbol, toSymbol));
+
+    private const string WordsRequestFormat = "{0}.words";
+    public async Task<IDnsToysWordsEntry> WordsAsync(int numbers) => await GetFirstAsync<IDnsToysWordsEntry>(string.Format(CultureInfo.InvariantCulture, WordsRequestFormat, numbers));
 }

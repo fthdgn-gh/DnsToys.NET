@@ -104,4 +104,18 @@ public class DnsToysTests
         result.ConvertedUnit.Should().Be("Centimeter");
         result.ConvertedSymbol.Should().Be("cm");
     }
+
+    [Fact]
+    public async Task Words_GetsValidEntry()
+    {
+        _requesterMock.Setup(x => x.RequestAsync($"123.words")).ReturnsAsync(new string[][] {
+            new string[] { "123 = one hundred twenty-three" }
+        });
+
+        var result = await sut.WordsAsync(123);
+
+        result.Should().NotBeNull();
+        result.Numbers.Should().Be(123);
+        result.Words.Should().Be("one hundred twenty-three");
+    }
 }
