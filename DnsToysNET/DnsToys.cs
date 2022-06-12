@@ -1,5 +1,6 @@
 ﻿using DnsClient;
 using DnsToysNET.Models;
+using System.Globalization;
 using System.Net;
 
 namespace DnsToysNET;
@@ -18,17 +19,27 @@ public class DnsToys : IDnsToys
         _compositeParser = compositeParser ?? new DefaultDnsToysEntryCompositeParser();
     }
 
-    protected async Task<IEnumerable<TIDnsToysEntry>> GetAsync<TDnsToysEntry, TIDnsToysEntry>(string command)
-        where TDnsToysEntry : TIDnsToysEntry
+    protected async Task<IEnumerable<TIDnsToysEntry>> GetAsync<TIDnsToysEntry>(string command)
         where TIDnsToysEntry : IDnsToysEntry
     {
         var response = await _requester.RequestAsync(command);
-        return response.Select(_compositeParser.Parse<TDnsToysEntry>).Cast<TIDnsToysEntry>();
+        return response.Select(_compositeParser.Parse<TIDnsToysEntry>);
     }
 
+    protected async Task<TIDnsToysEntry> GetFirstAsync<TIDnsToysEntry>(string command)
+        where TIDnsToysEntry : IDnsToysEntry
+    => (await GetAsync<TIDnsToysEntry>(command)).First();
+
     private const string HelpRequest = "help";
-    public async Task<IEnumerable<IDnsToysHelpEntry>> HelpAsync() => await GetAsync<DnsToysHelpEntry, IDnsToysHelpEntry>(HelpRequest);
+    public async Task<IEnumerable<IDnsToysHelpEntry>> HelpAsync() => await GetAsync<IDnsToysHelpEntry>(HelpRequest);
 
     private const string TimeRequestFormat = "{0}.time";
-    public async Task<IDnsToysTimeEntry> TimeAsync(string city) => (await GetAsync<DnsToysTimeEntry, IDnsToysTimeEntry>(string.Format(TimeRequestFormat, city))).First();
+    public async Task<IDnsToysTimeEntry> TimeAsync(string city) => await GetFirstAsync<IDnsToysTimeEntry>(string.Format(CultureInfo.InvariantCulture, TimeRequestFormat, city));
+
+    private const string IpRequest = "ip";
+    public async Task<IDnsToysIpEntry> IpAsync() => await GetFirstAsync<IDnsToysIpEntry>(IpRequest);
+
+    private const string FxRequestFormat = "{0}{1}-{2}.fx";
+    public async Task<IDnsToysFxEntry> FxAsync(double rate, string from, string to) => await GetFirstAsync<IDnsToysFxEntry>(string.Format(CultureInfo.InvariantCulture, FxRequestFormat, rate, from, to));
+
 }

@@ -2,9 +2,9 @@
 
 namespace DnsToysNET.Parsers;
 
-public class DnsToysHelpEntryParser : IDnsToysHelpEntryParser<DnsToysHelpEntry>
+public class DnsToysHelpEntryParser : IDnsToysHelpEntryParser
 {
-    public DnsToysHelpEntry Parse(string[] rawValue)
+    public IDnsToysHelpEntry Parse(string[] rawValue)
     {
         if (rawValue.Length < 2)
             throw new ArgumentException("rawValue must contain at least two elements");

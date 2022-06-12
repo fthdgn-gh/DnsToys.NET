@@ -2,9 +2,9 @@
 
 namespace DnsToysNET.Parsers;
 
-public class DnsToysTimeEntryParser : IDnsToysTimeEntryParser<DnsToysTimeEntry>
+public class DnsToysTimeEntryParser : IDnsToysTimeEntryParser
 {
-    public DnsToysTimeEntry Parse(string[] rawValue)
+    public IDnsToysTimeEntry Parse(string[] rawValue)
     {
         if (rawValue.Length < 2)
             throw new ArgumentException("rawValue must contain at least two elements");

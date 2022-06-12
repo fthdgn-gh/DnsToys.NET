@@ -8,5 +8,7 @@ public class DefaultDnsToysEntryCompositeParser: DnsToysEntryCompositeParser
     {
         Register(new DnsToysHelpEntryParser());
         Register(new DnsToysTimeEntryParser());
+        Register(new DnsToysIpEntryParser());
+        Register(new DnsToysFxEntryParser());
     }
 }

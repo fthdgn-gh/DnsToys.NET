@@ -2,6 +2,8 @@
 
 namespace DnsToysNET.Parsers;
 
-public interface IDnsToysTimeEntryParser<TDnsToysTimeEntry> : IDnsToysEntryParser<TDnsToysTimeEntry> where TDnsToysTimeEntry : IDnsToysTimeEntry { }
-public interface IDnsToysHelpEntryParser<TDnsToysHelpEntry> : IDnsToysEntryParser<TDnsToysHelpEntry> where TDnsToysHelpEntry : IDnsToysHelpEntry { }
+public interface IDnsToysTimeEntryParser : IDnsToysEntryParser<IDnsToysTimeEntry> { }
+public interface IDnsToysHelpEntryParser : IDnsToysEntryParser<IDnsToysHelpEntry> { }
+public interface IDnsToysIpEntryParser : IDnsToysEntryParser<IDnsToysIpEntry> { }
+public interface IDnsToysFxEntryParser : IDnsToysEntryParser<IDnsToysFxEntry> { }
 
