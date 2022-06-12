@@ -133,4 +133,19 @@ public class DnsToysTests
         result.LastIPAddress.Should().Be(IPAddress.Parse("10.100.0.254"));
         result.Cost.Should().Be(256);
     }
+
+    [Fact]
+    public async Task Weather_GetsValidEntry()
+    {
+        _requesterMock.Setup(x => x.RequestAsync($"berlin.weather")).ReturnsAsync(new string[][] {
+            new string[] {  "10.100.0.1","10.100.0.254", "256" }
+        });
+
+        var result = await sut.CIDRAsync("10.100.0.0", 24);
+
+        result.Should().NotBeNull();
+        result.FirstIPAddress.Should().Be(IPAddress.Parse("10.100.0.1"));
+        result.LastIPAddress.Should().Be(IPAddress.Parse("10.100.0.254"));
+        result.Cost.Should().Be(256);
+    }
 }

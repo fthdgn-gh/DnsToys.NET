@@ -14,7 +14,7 @@ public class DnsToysFxEntryParser : IDnsToysFxEntryParser
         var conversion = rawValue[0];
         var date = rawValue[1];
         var match = ConversionParser.Match(conversion);
-        if (match is null || !match.Success) throw new InvalidCastException("Conversion value doesn't match the format");
+        if (match is null || !match.Success) throw new InvalidDataException("Conversion value doesn't match the format");
 
         string rate = match!.Groups!.GetValueOrDefault(nameof(rate), null)?.Value ?? string.Empty;
         string currency = match!.Groups!.GetValueOrDefault(nameof(currency), null)?.Value ?? string.Empty;

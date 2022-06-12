@@ -13,7 +13,7 @@ public class DnsToysWordsEntryParser : IDnsToysWordsEntryParser
             throw new ArgumentException("rawValue must contain at least two elements");
         var conversion = rawValue[0];
         var match = ConversionParser.Match(conversion);
-        if (match is null || !match.Success) throw new InvalidCastException("Conversion value doesn't match the format");
+        if (match is null || !match.Success) throw new InvalidDataException("Conversion value doesn't match the format");
 
         string numbers = match!.Groups!.GetValueOrDefault(nameof(numbers), null)?.Value ?? string.Empty;
         string words = match!.Groups!.GetValueOrDefault(nameof(words), null)?.Value ?? string.Empty;

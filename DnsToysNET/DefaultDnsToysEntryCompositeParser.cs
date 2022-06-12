@@ -13,5 +13,6 @@ public class DefaultDnsToysEntryCompositeParser: DnsToysEntryCompositeParser
         Register(new DnsToysUnitEntryParser());
         Register(new DnsToysWordsEntryParser());
         Register(new DnsToysCIDREntryParser());
+        Register(new DnsToysWeatherEntryParser());
     }
 }

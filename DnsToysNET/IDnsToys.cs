@@ -12,4 +12,5 @@ public interface IDnsToys
     Task<IDnsToysWordsEntry> WordsAsync(int numbers);
     Task<IDnsToysCIDREntry> CIDRAsync(string cidr);
     Task<IDnsToysCIDREntry> CIDRAsync(string ipAddress, byte bits);
+    Task<IEnumerable<IDnsToysWeatherEntry>> WeatherAsync(string city);
 }

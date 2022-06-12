@@ -51,4 +51,7 @@ public class DnsToys : IDnsToys
     private const string CIDRRequestFormat = "{0}.cidr";
     public async Task<IDnsToysCIDREntry> CIDRAsync(string cidr) => await GetFirstAsync<IDnsToysCIDREntry>(string.Format(CultureInfo.InvariantCulture, CIDRRequestFormat, cidr));
     public async Task<IDnsToysCIDREntry> CIDRAsync(string ipAddress, byte bits) => await CIDRAsync($"{ipAddress}/{bits}");
+
+    private const string WeatherRequestFormat = "{0}.weather";
+    public async Task<IEnumerable<IDnsToysWeatherEntry>> WeatherAsync(string city) => await GetAsync<IDnsToysWeatherEntry>(string.Format(CultureInfo.InvariantCulture, WeatherRequestFormat, city));
 }
