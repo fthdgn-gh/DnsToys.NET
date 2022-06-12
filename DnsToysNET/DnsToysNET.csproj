@@ -8,7 +8,7 @@
 		<Product>DnsToys.NET</Product>
 		<Description>DnsToys.NET is a simple library for the dns.toys service.</Description>
 		<Copyright>Copyright (c) 2022 Fatih Doğan</Copyright>
-		<Authors>fatihdgn</Authors>
+		<Authors>fth.dgn</Authors>
 		<AssemblyName>DnsToys</AssemblyName>
 
 		<PackageId>DnsToys</PackageId>
