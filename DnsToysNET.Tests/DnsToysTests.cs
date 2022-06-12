@@ -15,18 +15,6 @@ public class DnsToysTests
     }
 
     [Fact]
-    public async Task Help_GetsEntries()
-    {
-        _requesterMock.Setup(x => x.RequestAsync("help")).ReturnsAsync(new string[][] {
-            new string[] { "hello", "there" }
-        });
-
-        var result = await sut.HelpAsync();
-
-        result.Should().NotBeEmpty();
-    }
-
-    [Fact]
     public async Task Help_GetsValidEntries()
     {
         _requesterMock.Setup(x => x.RequestAsync("help")).ReturnsAsync(new string[][] {
