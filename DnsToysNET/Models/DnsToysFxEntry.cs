@@ -10,9 +10,9 @@ public struct DnsToysFxEntry : IDnsToysFxEntry
         ConvertedRate = convertedRate;
         Date = date;
     }
-    public string Currency { get; set; }
-    public string ConvertedCurrency { get; set; }
-    public double Rate { get; set; }
-    public double ConvertedRate { get; set; }
-    public DateOnly Date { get; set; }
+    public string Currency { get; }
+    public string ConvertedCurrency { get; }
+    public double Rate { get; }
+    public double ConvertedRate { get; }
+    public DateOnly Date { get; }
 }

@@ -10,5 +10,6 @@ public class DefaultDnsToysEntryCompositeParser: DnsToysEntryCompositeParser
         Register(new DnsToysTimeEntryParser());
         Register(new DnsToysIpEntryParser());
         Register(new DnsToysFxEntryParser());
+        Register(new DnsToysUnitEntryParser());
     }
 }

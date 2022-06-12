@@ -7,7 +7,7 @@ public struct DnsToysTimeEntry : IDnsToysTimeEntry
         City = city;
         Time = time;
     }
-    public string City { get; set; }
-    public DateTimeOffset Time { get; set; }
+    public string City { get; }
+    public DateTimeOffset Time { get; }
 }
 

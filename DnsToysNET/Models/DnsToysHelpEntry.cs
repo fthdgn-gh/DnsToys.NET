@@ -7,6 +7,6 @@ public struct DnsToysHelpEntry : IDnsToysHelpEntry
         Description = description;
         SampleRequest = sampleRequest;
     }
-    public string Description { get; set; }
-    public string SampleRequest { get; set; }
+    public string Description { get; }
+    public string SampleRequest { get; }
 }

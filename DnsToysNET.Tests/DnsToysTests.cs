@@ -85,4 +85,23 @@ public class DnsToysTests
         result.ConvertedRate.Should().Be(7743.30);
         result.Date.Should().Be(DateOnly.Parse("2022-06-12"));
     }
+
+    [Fact]
+    public async Task Unit_GetsValidEntry()
+    {
+        _requesterMock.Setup(x => x.RequestAsync($"42.3km-cm.unit")).ReturnsAsync(new string[][] {
+            new string[] { "42.30 Kilometer (km) = 4229999.92 Centimeter (cm)" }
+        });
+
+        var result = await sut.UnitAsync(42.3, "km", "cm");
+
+        result.Should().NotBeNull();
+        result.Value.Should().Be(42.3);
+        result.Unit.Should().Be("Kilometer");
+        result.Symbol.Should().Be("km");
+
+        result.ConvertedValue.Should().Be(4229999.92);
+        result.ConvertedUnit.Should().Be("Centimeter");
+        result.ConvertedSymbol.Should().Be("cm");
+    }
 }

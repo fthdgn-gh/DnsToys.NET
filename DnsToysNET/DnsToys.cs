@@ -40,6 +40,8 @@ public class DnsToys : IDnsToys
     public async Task<IDnsToysIpEntry> IpAsync() => await GetFirstAsync<IDnsToysIpEntry>(IpRequest);
 
     private const string FxRequestFormat = "{0}{1}-{2}.fx";
-    public async Task<IDnsToysFxEntry> FxAsync(double rate, string from, string to) => await GetFirstAsync<IDnsToysFxEntry>(string.Format(CultureInfo.InvariantCulture, FxRequestFormat, rate, from, to));
-
+    public async Task<IDnsToysFxEntry> FxAsync(double rate, string fromCurrencyCode, string toCurrencyCode) => await GetFirstAsync<IDnsToysFxEntry>(string.Format(CultureInfo.InvariantCulture, FxRequestFormat, rate, fromCurrencyCode, toCurrencyCode));
+    
+    private const string UnitRequestFormat = "{0}{1}-{2}.unit";
+    public async Task<IDnsToysUnitEntry> UnitAsync(double unit, string fromSymbol, string toSymbol) => await GetFirstAsync<IDnsToysUnitEntry>(string.Format(CultureInfo.InvariantCulture, UnitRequestFormat, unit, fromSymbol, toSymbol));
 }
