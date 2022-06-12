@@ -14,9 +14,9 @@ public class DnsToysWordsEntryParser : IDnsToysWordsEntryParser
         var conversion = rawValue[0];
         var match = ConversionParser.Match(conversion);
         if (match is null || !match.Success) throw new InvalidDataException("Conversion value doesn't match the format");
-
-        string numbers = match!.Groups!.GetValueOrDefault(nameof(numbers), null)?.Value ?? string.Empty;
-        string words = match!.Groups!.GetValueOrDefault(nameof(words), null)?.Value ?? string.Empty;
+        
+        string numbers = match!.Groups![nameof(numbers)]?.Value ?? string.Empty;
+        string words = match!.Groups![nameof(words)]?.Value ?? string.Empty;
 
         int.TryParse(numbers, NumberStyles.Any, CultureInfo.InvariantCulture, out var dNumbers);
         return new DnsToysWordsEntry(dNumbers, words);

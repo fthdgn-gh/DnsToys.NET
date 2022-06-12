@@ -32,13 +32,13 @@ public class DnsToysWeatherEntryParser : IDnsToysWeatherEntryParser
         var timeAndDayMatch = TimeAndDayParser.Match(timeAndDay);
         if (timeAndDayMatch is null || !timeAndDayMatch.Success) throw new InvalidDataException("Time and day value doesn't match the format");
 
-        string city = cityAndCountryCodeMatch!.Groups!.GetValueOrDefault(nameof(city), null)?.Value ?? string.Empty;
-        string countryCode = cityAndCountryCodeMatch!.Groups!.GetValueOrDefault(nameof(countryCode), null)?.Value ?? string.Empty;
-        string celsius = temperatureMatch!.Groups!.GetValueOrDefault(nameof(celsius), null)?.Value ?? string.Empty;
-        string fahrenheit = temperatureMatch!.Groups!.GetValueOrDefault(nameof(fahrenheit), null)?.Value ?? string.Empty;
-        string humidity = humidityMatch!.Groups!.GetValueOrDefault(nameof(humidity), null)?.Value ?? string.Empty;
-        string time = timeAndDayMatch!.Groups!.GetValueOrDefault(nameof(time), null)?.Value ?? string.Empty;
-        string day = timeAndDayMatch!.Groups!.GetValueOrDefault(nameof(day), null)?.Value ?? string.Empty;
+        string city = cityAndCountryCodeMatch!.Groups![nameof(city)]?.Value ?? string.Empty;
+        string countryCode = cityAndCountryCodeMatch!.Groups![nameof(countryCode)]?.Value ?? string.Empty;
+        string celsius = temperatureMatch!.Groups![nameof(celsius)]?.Value ?? string.Empty;
+        string fahrenheit = temperatureMatch!.Groups![nameof(fahrenheit)]?.Value ?? string.Empty;
+        string humidity = humidityMatch!.Groups![nameof(humidity)]?.Value ?? string.Empty;
+        string time = timeAndDayMatch!.Groups![nameof(time)]?.Value ?? string.Empty;
+        string day = timeAndDayMatch!.Groups![nameof(day)]?.Value ?? string.Empty;
 
         float.TryParse(celsius, NumberStyles.Any, CultureInfo.InvariantCulture, out var fCelsius);
         float.TryParse(fahrenheit, NumberStyles.Any, CultureInfo.InvariantCulture, out var fFahrenheit);
