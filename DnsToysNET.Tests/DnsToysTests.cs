@@ -15,7 +15,7 @@ public class DnsToysTests
     }
 
     [Fact]
-    public async Task Help_GetsValidEntries()
+    public async Task Help_GetsValidEntry()
     {
         _requesterMock.Setup(x => x.RequestAsync("help")).ReturnsAsync(new string[][] {
             new string[] { "hello", "dig there @dns.toys" }
