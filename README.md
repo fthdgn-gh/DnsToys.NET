@@ -48,5 +48,15 @@ IDnsToysIpEntry result = await client.IpAsync();
 IPAddress requestingIP = result.RequestingIP;
 ```
 
+### Currently Supported dns.toys Services
+- help
+- time
+- ip
+- fx
+- unit
+- words
+- cidr
+- weather
+
 ## Testing
 Library is developed with unit testing in mind, so you can mock all the models, parsers, raw requester and the main client itself.
