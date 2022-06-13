@@ -8,7 +8,7 @@ You can install DnsToys.NET through NuGet.
 
 Supported frameworks are; 
 - .NET 6 and 5
-- .NET Standard 2.0 and 2.1
+- .NET Standard 2.1 and 2.0
 - .NET Framework 4.7.1
 
 Here are the available options.
