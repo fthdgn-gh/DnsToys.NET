@@ -32,3 +32,21 @@ paket add DnsToys
 // Install DnsToys as a Cake Tool
 #tool nuget:?package=DnsToys&version=1.0.0
 ```
+
+## Getting Started
+You can use the ```DnsToys``` class' parameterless constructor directly. Sample below fetches the current requesting IP using the service.
+
+```
+using System.Net;
+using DnsToysNET;
+using DnsToysNET.Models;
+
+...
+
+IDnsToys client = new DnsToys();
+IDnsToysIpEntry result = await client.IpAsync();
+IPAddress requestingIP = result.RequestingIP;
+```
+
+## Testing
+Library is developed with unit testing in mind, so you can mock all the models, parsers, raw requester and the main client itself.
