@@ -4,7 +4,7 @@ DnsToys.NET is a simple library for the [dns.toys](https://github.com/knadh/dns.
 
 ## Install
 
-You can install DnsToys.NET through NuGet. 
+You can install DnsToys.NET through [NuGet](https://www.nuget.org/packages/DnsToys). 
 
 Supported frameworks are; 
 - .NET 6 and 5
