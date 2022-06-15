@@ -1,10 +1,11 @@
 <img width="150" src="https://raw.githubusercontent.com/fatihdgn/DnsToys.NET/master/icon.png?token=GHSAT0AAAAAABSXPGES74CS7A5LNXYCQVDUYVGEPUQ" />
+<img height="20" src="https://img.shields.io/nuget/v/DnsToys" 
 
 DnsToys.NET is a simple library for the [dns.toys](https://github.com/knadh/dns.toys) service.
 
 ## Install
 
-You can install DnsToys.NET through [NuGet](https://www.nuget.org/packages/DnsToys). 
+You can install DnsToys.NET through [NuGet](https://www.nuget.org/packages/DnsToys).
 
 Supported frameworks are; 
 - .NET 6 and 5
