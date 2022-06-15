@@ -62,6 +62,8 @@ IPAddress requestingIP = result.RequestingIP;
 - words
 - cidr
 - weather
+- pi
+- base
 
 ## Testing
 Library is developed with unit testing in mind, so you can mock all the models, parsers, raw requester and the main client itself.
