@@ -13,4 +13,5 @@ public interface IDnsToys
     Task<IDnsToysCIDREntry> CIDRAsync(string cidr);
     Task<IDnsToysCIDREntry> CIDRAsync(string ipAddress, byte bits);
     Task<IEnumerable<IDnsToysWeatherEntry>> WeatherAsync(string city);
+    Task<IDnsToysPIEntry> PIAsync();
 }

@@ -143,4 +143,17 @@ public class DnsToysTests
         entry!.Time.Should().Be(TimeOnly.Parse("17:00"));
         entry!.Day.Should().Be(DayOfWeek.Sunday);
     }
+
+    [Fact]
+    public async Task PI_GetsValidEntry()
+    {
+        _requesterMock.Setup(x => x.RequestAsync($"pi")).ReturnsAsync(new string[][] {
+            new string[] { "3.141592653589793238462643383279502884197169" }
+        });
+
+        var result = await sut.PIAsync();
+
+        result.Should().NotBeNull();
+        result.PI.Should().Be(3.141592653589793238462643383279502884197169);
+    }
 }

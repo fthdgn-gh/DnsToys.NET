@@ -54,4 +54,7 @@ public class DnsToys : IDnsToys
 
     private const string WeatherRequestFormat = "{0}.weather";
     public async Task<IEnumerable<IDnsToysWeatherEntry>> WeatherAsync(string city) => await GetAsync<IDnsToysWeatherEntry>(string.Format(CultureInfo.InvariantCulture, WeatherRequestFormat, city));
+
+    private const string PIRequest = "pi";
+    public async Task<IDnsToysPIEntry> PIAsync() => await GetFirstAsync<IDnsToysPIEntry>(PIRequest);
 }

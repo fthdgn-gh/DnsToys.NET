@@ -10,4 +10,5 @@ public interface IDnsToysUnitEntryParser : IDnsToysEntryParser<IDnsToysUnitEntry
 public interface IDnsToysWordsEntryParser : IDnsToysEntryParser<IDnsToysWordsEntry> { }
 public interface IDnsToysCIDREntryParser : IDnsToysEntryParser<IDnsToysCIDREntry> { }
 public interface IDnsToysWeatherEntryParser : IDnsToysEntryParser<IDnsToysWeatherEntry> { }
+public interface IDnsToysPIEntryParser : IDnsToysEntryParser<IDnsToysPIEntry> { }
 
