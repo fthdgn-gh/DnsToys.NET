@@ -57,4 +57,7 @@ public class DnsToys : IDnsToys
 
     private const string PIRequest = "pi";
     public async Task<IDnsToysPIEntry> PIAsync() => await GetFirstAsync<IDnsToysPIEntry>(PIRequest);
+
+    private const string BaseRequestFormat = "{0}{1}-{2}.base";
+    public async Task<IDnsToysBaseEntry> BaseAsync(double value, string fromBase, string toBase) => await GetFirstAsync<IDnsToysBaseEntry>(string.Format(CultureInfo.InvariantCulture, BaseRequestFormat, value, fromBase, toBase));
 }

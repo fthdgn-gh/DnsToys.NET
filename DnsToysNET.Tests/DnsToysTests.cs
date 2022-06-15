@@ -156,4 +156,20 @@ public class DnsToysTests
         result.Should().NotBeNull();
         result.PI.Should().Be(3.141592653589793238462643383279502884197169);
     }
+
+    [Fact]
+    public async Task Base_GetsValidEntry()
+    {
+        _requesterMock.Setup(x => x.RequestAsync($"100hex-bin.base")).ReturnsAsync(new string[][] {
+            new string[] { "100 hex = 100000000 bin" }
+        });
+
+        var result = await sut.BaseAsync(100, "hex", "bin");
+
+        result.Should().NotBeNull();
+        result.FromBase.Should().Be("hex");
+        result.FromValue.Should().Be(100);
+        result.ToBase.Should().Be("bin");
+        result.ToValue.Should().Be(100000000);
+    }
 }
