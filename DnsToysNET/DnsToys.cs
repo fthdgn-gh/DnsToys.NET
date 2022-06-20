@@ -45,6 +45,15 @@ public class DnsToys : IDnsToys
     private const string UnitRequestFormat = "{0}{1}-{2}.unit";
     public async Task<IDnsToysUnitEntry> UnitAsync(double unit, string fromSymbol, string toSymbol) => await GetFirstAsync<IDnsToysUnitEntry>(string.Format(CultureInfo.InvariantCulture, UnitRequestFormat, unit, fromSymbol, toSymbol));
 
+    public async Task<IDnsToysUnitEntry> UnitAsync(double unit, DnsToysUnits.Area from, DnsToysUnits.Area to) => await UnitAsync(unit, from.AsSymbol(), to.AsSymbol());
+    public async Task<IDnsToysUnitEntry> UnitAsync(double unit, DnsToysUnits.Digital from, DnsToysUnits.Digital to) => await UnitAsync(unit, from.AsSymbol(), to.AsSymbol());
+    public async Task<IDnsToysUnitEntry> UnitAsync(double unit, DnsToysUnits.Length from, DnsToysUnits.Length to) => await UnitAsync(unit, from.AsSymbol(), to.AsSymbol());
+    public async Task<IDnsToysUnitEntry> UnitAsync(double unit, DnsToysUnits.Mass from, DnsToysUnits.Mass to) => await UnitAsync(unit, from.AsSymbol(), to.AsSymbol());
+    public async Task<IDnsToysUnitEntry> UnitAsync(double unit, DnsToysUnits.Speed from, DnsToysUnits.Speed to) => await UnitAsync(unit, from.AsSymbol(), to.AsSymbol());
+    public async Task<IDnsToysUnitEntry> UnitAsync(double unit, DnsToysUnits.Time from, DnsToysUnits.Time to) => await UnitAsync(unit, from.AsSymbol(), to.AsSymbol());
+    public async Task<IDnsToysUnitEntry> UnitAsync(double unit, DnsToysUnits.Volume from, DnsToysUnits.Volume to) => await UnitAsync(unit, from.AsSymbol(), to.AsSymbol());
+
+
     private const string WordsRequestFormat = "{0}.words";
     public async Task<IDnsToysWordsEntry> WordsAsync(int numbers) => await GetFirstAsync<IDnsToysWordsEntry>(string.Format(CultureInfo.InvariantCulture, WordsRequestFormat, numbers));
 
@@ -60,4 +69,5 @@ public class DnsToys : IDnsToys
 
     private const string BaseRequestFormat = "{0}{1}-{2}.base";
     public async Task<IDnsToysBaseEntry> BaseAsync(double value, string fromBase, string toBase) => await GetFirstAsync<IDnsToysBaseEntry>(string.Format(CultureInfo.InvariantCulture, BaseRequestFormat, value, fromBase, toBase));
+
 }
